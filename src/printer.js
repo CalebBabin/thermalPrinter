@@ -296,11 +296,11 @@ Printer.prototype.printLine = function (text) {
 	return this.printText(text).writeCommand(10);
 };
 
-Printer.prototype.printImage = function(path){
+Printer.prototype.printImage = function(buffer){
 	var done = false;
 
 	var _self = this;
-	getPixels(path, function(err, pixels){
+	getPixels(buffer, 'image/png', function(err, pixels){
 		if(!err){
 			var width = pixels.shape[0];
 			var height = pixels.shape[1];
